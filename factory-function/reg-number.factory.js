@@ -5,6 +5,8 @@ function RegistrationNumbers(){
     var GPRegNo = [];
     var ECRegNo = [];
     var CJRegNo = [];
+    var allRegistrations = []
+
    
     function setRegistration(regNumber){
         theRegNumber = regNumber;
@@ -40,8 +42,14 @@ function RegistrationNumbers(){
         }
        return ECRegNo
     }
+    function getAllRegistrations(){
+        if (allRegistrations.includes(theRegNumber.toUpperCase()) == false){
+            allRegistrations.push(theRegNumber.toUpperCase())
+        }
+       return allRegistrations
+    }
     function getRegLists(){
-        return CARegNo,CJRegNo,ECRegNo,GPRegNo
+        return {CARegNo,CJRegNo,ECRegNo,GPRegNo}
     }
     return{
         setRegistration,
@@ -51,6 +59,7 @@ function RegistrationNumbers(){
         ECRegList,
         GPRegList,
         CJRegList,
-        getRegLists
+        getRegLists,
+        getAllRegistrations
     }
 }
