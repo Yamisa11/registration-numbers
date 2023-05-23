@@ -4,6 +4,7 @@ var showBtn = document.querySelector(".show");
 var regInputNumber = document.querySelector(".regNo");
 var container = document.querySelector(".display");
 var selected = document.getElementById("towns");
+var messageText = document.querySelector(".messageText")
 var caArray = [];
 var ecArray = [];
 var gpArray = [];
@@ -21,6 +22,8 @@ while (container.firstChild) {
 }
  
 
+if (value != "") {
+  
   if (locationn == "CA") {
     caArray = RegNumbers.CARegList();
     allArray = RegNumbers.getAllRegistrations();
@@ -41,8 +44,18 @@ while (container.firstChild) {
     allArray = RegNumbers.getAllRegistrations();
     localStorage["GP"] = JSON.stringify(RegNumbers.GPRegList());
   }
-  console.log(allArray);
+  
   localStorage["allTowns"] = JSON.stringify(RegNumbers.getAllRegistrations());
+
+}else{
+  messageText.innerHTML = RegNumbers.errors()
+  messageText.classList.add("errorDisplay")
+
+  setTimeout(() => {
+    messageText.classList.remove("errorDisplay");
+    messageText.innerHTML = "";
+  }, 4000);
+}
   
 
 
@@ -52,7 +65,7 @@ while (container.firstChild) {
     regNoText = document.createTextNode(allArray[i]);
     newDiv.appendChild(regNoText);
     container.appendChild(newDiv);
-   
+   newDiv.classList.add(RegNumbers.classListDisplay())
 }
 });
 
@@ -75,15 +88,18 @@ showBtn.addEventListener("click", function () {
       regNoText = document.createTextNode(allArray[i]);
       newDiv.appendChild(regNoText);
       container.appendChild(newDiv);
+      newDiv.classList.add(RegNumbers.classListDisplay())
     }
   }
   if (selectedTown == "CA") {
+    
     for (let i = 0; i < caArray.length; i++) {
       const element = caArray[i];
       var newDiv = document.createElement("div");
       regNoText = document.createTextNode(caArray[i]);
       newDiv.appendChild(regNoText);
       container.appendChild(newDiv);
+      newDiv.classList.add(RegNumbers.classListDisplay())
     }
   }
   if (selectedTown == "EC") {
@@ -93,6 +109,7 @@ showBtn.addEventListener("click", function () {
       regNoText = document.createTextNode(ecArray[i]);
       newDiv.appendChild(regNoText);
       container.appendChild(newDiv);
+      newDiv.classList.add(RegNumbers.classListDisplay())
     }
   }
   if (selectedTown == "GP") {
@@ -102,14 +119,17 @@ showBtn.addEventListener("click", function () {
       regNoText = document.createTextNode(gpArray[i]);
       newDiv.appendChild(regNoText);
       container.appendChild(newDiv);
+      newDiv.classList.add(RegNumbers.classListDisplay())
     }
   }
   if (selectedTown == "CJ") {
+
     for (let i = 0; i < cjArray.length; i++) {
       var newDiv = document.createElement("div");
       regNoText = document.createTextNode(cjArray[i]);
       newDiv.appendChild(regNoText);
       container.appendChild(newDiv);
+      newDiv.classList.add(RegNumbers.classListDisplay())
     }
   }
 });

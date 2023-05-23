@@ -1,0 +1,47 @@
+.container{
+    padding: 1.5%;
+    margin: 2em 3em 2em 3em;
+    text-align: center;
+    background-color: #a3a380;
+    font-family:'Times New Roman', Times, serif;
+    height: 25em;border-radius: 10px;
+
+}
+.display{
+    margin: 2.5em 2em 1em 2em;
+    display: flex;
+    flex-wrap: wrap;
+  
+}
+.displayReg{
+    border:3px solid;
+    border-radius: 5px;
+    background-color:rgb(244, 180, 17);
+    color:rgb(46, 45, 45);
+    width: 20%;
+    height: 1.7em;
+    text-align: center;
+    padding-top: 2.5%;
+    margin-top: 0.7em;
+    margin-right: 0.6em;
+    font:bold;
+    font-size: large;
+}
+button{
+    border-radius: 5px;
+    border: none;
+    background-color: #778da9;
+    width: 15%;
+    height: 2em;
+    font-size:14px;
+    
+}
+input, #towns{
+    width: 40%;
+    height: 1.8em;
+    margin: 1em 1em;
+    border-radius: 5px;
+}
+.errorDisplay{
+    background-color: crimson;
+}

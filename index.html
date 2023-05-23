@@ -5,27 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration numbers</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <div class="container">
         <h1>Registration number list</h1>
-        <input type="text" name="regNo" class="regNo">
+        <input type="text" name="regNo" class="regNo" placeholder="Please enter registration number.e.g CA1243">
         <button class="addBtn">Add</button>
-
-        <label for="towns">Select location: </label> 
-    <select name="towns" id="towns">
-        <option value="ALL">All Towns</option>  
-        <option value="CA">Cape Town</option> 
-        <option value="EC">Eastern Cape</option> 
-        <option value="GP">Gauteng</option> 
-        <option value="CJ">Paarl</option> 
-    </select>
-    <button class="show">show</button>
-  <div class="display">
-    
-  </div>
-
-
+        
+      <div class="dropdown">
+        <select name="towns" id="towns">
+            <option value="Select" style="font: bold;">Select town</option>  
+            <option value="ALL">All Towns</option>  
+            <option value="CA">Cape Town</option> 
+            <option value="EC">Eastern Cape</option> 
+            <option value="GP">Gauteng</option> 
+            <option value="CJ">Paarl</option> 
+        </select>
+        <button class="show">show</button>
+      </div>
+        <div class="messageText">
+            
+        </div>
+        <div class="display">
+      
+        </div>
+        
     </div>
     <script src="factory-function/reg-number.factory.js"></script>
     <script src="DOM/reg-number.js"></script>

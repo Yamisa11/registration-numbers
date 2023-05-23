@@ -19,7 +19,7 @@ function RegistrationNumbers(){
         return locIndicator;
     }
     function CARegList(){
-        if (CARegNo.includes(theRegNumber.toUpperCase()) == false){
+        if (CARegNo.includes(theRegNumber.toUpperCase()) == false ){
             CARegNo.push(theRegNumber.toUpperCase())
         }
        return CARegNo
@@ -51,6 +51,17 @@ function RegistrationNumbers(){
     function getRegLists(){
         return {CARegNo,CJRegNo,ECRegNo,GPRegNo}
     }
+    function classListDisplay(){
+        return "displayReg"
+    }
+    function errors(){
+        if (theRegNumber == ""){
+            return "Please enter registration number!"
+        }
+        if (allRegistrations.length < 1){
+            return "No registrations available!"
+        }
+    }
     return{
         setRegistration,
         getRegistration,
@@ -60,6 +71,8 @@ function RegistrationNumbers(){
         GPRegList,
         CJRegList,
         getRegLists,
-        getAllRegistrations
+        getAllRegistrations,
+        classListDisplay,
+        errors
     }
 }
