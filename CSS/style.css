@@ -24,7 +24,7 @@ body{
     border-radius: 5px;
     background-color:rgb(244, 180, 17);
     color:rgb(46, 45, 45);
-    width: 25%;
+    width: 28%;
     height: 1.7em;
     text-align: center;
     padding-top: 2.5%;
@@ -55,5 +55,31 @@ input, #towns{
     border-radius: 10px;
     font-size:x-large;
     
+
+}
+.warning{
+    background-color: rgb(243, 191, 108);
+    border-radius: 10px;
+    font-size:x-large;
+}
+
+@media  screen and (max-width : 800px){
+    .displayReg{
+        width:40%;
+        font-size: medium;
+    }
+    body{
+        font-size: medium;
+    }
+    input,#towns{
+        width: 50%;
+    }
+    button{
+        font-size: medium;
+        width: 20%;
+    }
+    .display{
+        margin-left: 2em;
+    }
 
 }

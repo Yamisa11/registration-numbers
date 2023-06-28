@@ -32,6 +32,11 @@ function RegistrationNumbers(list){
         return true
     }
   }
+  function existsReg(){
+    if (allRegistrations.includes(theRegNumber.toUpperCase()) == true) {
+        return true
+    }
+  } 
     function errors(){
 
         
@@ -45,6 +50,7 @@ function RegistrationNumbers(list){
         getAllRegistrations,
         classListDisplay,
         errors,
-        regexRe
+        regexRe,
+        existsReg
     }
 }

@@ -27,31 +27,41 @@ while (container.firstChild) {
  
 
 if (value != "") {
-  
-  if (locationn == "CA" || locationn == "EC" || locationn == "CJ" || locationn == "GP") {
-  if (RegNumbers.regexRe() === true) {
-    messageText.innerHTML = RegNumbers.errors()
-    messageText.classList.add("errorDisplay")
-  
-    setTimeout(() => {
-      messageText.classList.remove("errorDisplay");
-      messageText.innerHTML = "";
-    }, 4000);
-  }
-  else{
-
-    allArray = RegNumbers.getAllRegistrations();
-  
-    localStorage["allTowns"] = JSON.stringify(RegNumbers.getAllRegistrations());
-  }
+  if (RegNumbers.existsReg() == true) {
+    messageText.innerHTML = " Oopps! registration number already exists"
+      messageText.classList.add("warning")
+    
+      setTimeout(() => {
+        messageText.classList.remove("warning");
+        messageText.innerHTML = "";
+      }, 4000);
   }else{
-    messageText.innerHTML = RegNumbers.errors()
-    messageText.classList.add("errorDisplay")
+
+  if (locationn == "CA" || locationn == "EC" || locationn == "CJ" || locationn == "GP") {
+    if (RegNumbers.regexRe() === true) {
+      messageText.innerHTML = RegNumbers.errors()
+      messageText.classList.add("errorDisplay")
+    
+      setTimeout(() => {
+        messageText.classList.remove("errorDisplay");
+        messageText.innerHTML = "";
+      }, 4000);
+    }
+    else{
   
-    setTimeout(() => {
-      messageText.classList.remove("errorDisplay");
-      messageText.innerHTML = "";
-    }, 4000);
+      allArray = RegNumbers.getAllRegistrations();
+    
+      localStorage["allTowns"] = JSON.stringify(RegNumbers.getAllRegistrations());
+    }
+    }else{
+      messageText.innerHTML = RegNumbers.errors()
+      messageText.classList.add("errorDisplay")
+    
+      setTimeout(() => {
+        messageText.classList.remove("errorDisplay");
+        messageText.innerHTML = "";
+      }, 4000);
+    }
   }
   
   
@@ -76,6 +86,8 @@ if (value != "") {
     container.appendChild(newDiv);
    newDiv.classList.add(RegNumbers.classListDisplay())
 }
+
+regInputNumber.value = ""
 });
 
 
