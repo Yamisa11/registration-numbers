@@ -1,15 +1,12 @@
-function RegistrationNumbers(){
+function RegistrationNumbers(list){
     var theRegNumber = "";
     var locIndicator
-    var CARegNo = [];
-    var GPRegNo = [];
-    var ECRegNo = [];
-    var CJRegNo = [];
-    var allRegistrations = []
+   var regex = /[@!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
+    var allRegistrations = list || []
 
    
     function setRegistration(regNumber){
-        theRegNumber = regNumber;
+        theRegNumber = regNumber.trim();
     }
     function getRegistration(){
         return theRegNumber.toUpperCase()
@@ -18,61 +15,36 @@ function RegistrationNumbers(){
         locIndicator = theRegNumber.slice(0,2)
         return locIndicator;
     }
-    function CARegList(){
-        if (CARegNo.includes(theRegNumber.toUpperCase()) == false ){
-            CARegNo.push(theRegNumber.toUpperCase())
-        }
-       return CARegNo
-    }
-    function CJRegList(){
-        if (CJRegNo.includes(theRegNumber.toUpperCase()) == false){
-            CJRegNo.push(theRegNumber.toUpperCase())
-        }
-      return CJRegNo
-    }
-    function GPRegList(){
-        if (GPRegNo.includes(theRegNumber.toUpperCase()) == false){
-            GPRegNo.push(theRegNumber.toUpperCase())
-        }
-     return GPRegNo
-    }
-    function ECRegList(){
-        if (ECRegNo.includes(theRegNumber.toUpperCase()) == false){
-            ECRegNo.push(theRegNumber.toUpperCase())
-        }
-       return ECRegNo
-    }
+
     function getAllRegistrations(){
+        if (regex.test(theRegNumber) === false) {
         if (allRegistrations.includes(theRegNumber.toUpperCase()) == false){
             allRegistrations.push(theRegNumber.toUpperCase())
         }
-       return allRegistrations
     }
-    function getRegLists(){
-        return {CARegNo,CJRegNo,ECRegNo,GPRegNo}
+    return allRegistrations
     }
     function classListDisplay(){
         return "displayReg"
     }
+  function regexRe(){
+    if (regex.test(theRegNumber) === true){
+        return true
+    }
+  }
     function errors(){
-        if (theRegNumber == ""){
-            return "Please enter registration number!"
-        }
-        if (allRegistrations.length < 1){
-            return "No registrations available!"
-        }
+
+        
+            return "Please enter valid registration number!"
+      
     }
     return{
         setRegistration,
         getRegistration,
         checklocIndicator,
-        CARegList,
-        ECRegList,
-        GPRegList,
-        CJRegList,
-        getRegLists,
         getAllRegistrations,
         classListDisplay,
-        errors
+        errors,
+        regexRe
     }
 }
