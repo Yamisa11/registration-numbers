@@ -1,7 +1,7 @@
 function RegistrationNumbers(list){
     var theRegNumber = "";
     var locIndicator
-   var regex = /[@!#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
+   var regex = /[@!#$%^&*()_+\=\[\]{};':"\\|,.<>\/?]/
     var allRegistrations = list || []
 
    
