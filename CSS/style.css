@@ -70,6 +70,8 @@ input, #towns{
     }
     body{
         font-size: medium;
+       
+
     }
     input,#towns{
         width: 50%;
@@ -80,6 +82,15 @@ input, #towns{
     }
     .display{
         margin-left: 2em;
+    }
+    .container{
+        width: 90%;
+        margin: auto;
+        margin-top: 10%;
+
+    }
+    h1{
+        word-wrap: break-word;
     }
 
 }

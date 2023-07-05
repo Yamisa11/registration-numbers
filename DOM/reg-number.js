@@ -93,6 +93,7 @@ regInputNumber.value = ""
 
 showBtn.addEventListener("click", function () {
   var selectedTown = selected.value;
+  var tempARR = []
 
   var value = regInputNumber.value;
   var regNoText = "";
@@ -106,12 +107,27 @@ showBtn.addEventListener("click", function () {
     for (let i = 0; i < allArray.length; i++) {
       const element = allArray[i];
      if (element.startsWith(selectedTown)) {
-      var newDiv = document.createElement("div");
-      regNoText = document.createTextNode(allArray[i]);
-      newDiv.appendChild(regNoText);
-      container.appendChild(newDiv);
-      newDiv.classList.add(RegNumbers.classListDisplay())
+      tempARR.push(allArray[i])
      }
+    }
+    if (tempARR.length == 0 && selectedTown != "ALL") {
+      messageText.innerHTML = "No available registration"
+      messageText.classList.add("errorDisplay")
+    
+      setTimeout(() => {
+        messageText.classList.remove("errorDisplay");
+        messageText.innerHTML = "";
+      }, 4000);
+    }else{
+
+      for (let j = 0; j < tempARR.length; j++) {
+                
+        var newDiv = document.createElement("div");
+        regNoText = document.createTextNode(tempARR[j]);
+        newDiv.appendChild(regNoText);
+        container.appendChild(newDiv);
+        newDiv.classList.add(RegNumbers.classListDisplay())
+      }
     }
     if(selectedTown == "ALL"){
       if (allArray.length != 0) {
@@ -134,5 +150,5 @@ showBtn.addEventListener("click", function () {
         }, 4000);
       }
     }
- 
+ console.log(tempARR)
 });

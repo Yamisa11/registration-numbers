@@ -40,7 +40,7 @@ function RegistrationNumbers(list){
     function errors(){
 
         
-            return "Please enter valid registration number!"
+            return "Please enter valid registration number! Valid Format CA, GP, EC or CJ"
       
     }
     return{
